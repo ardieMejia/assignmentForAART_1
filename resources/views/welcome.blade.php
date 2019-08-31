@@ -22,6 +22,9 @@
 
             </table>
 
+
+            <a  href="{{url('user')}}">a link that should do much</a>
+
             
         </div>
 
