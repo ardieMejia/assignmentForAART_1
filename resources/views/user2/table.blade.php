@@ -23,16 +23,32 @@
             </table>
 
 
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>name</th>
+                    <th>email</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
 
-            <ul>
-                <li>
-                    <a href="{{url('user/create')}}">Create new user</a>                    
-                </li>
-                <li>
-                    <a href="{{url('user2')}}">New Home Page</a>
-                </li>
-            </ul>
+                    @foreach ($users as $user)
+                        <tr>
+                            <td>{{$user->id}}</td>
+                            <td>{{$user->lastname}}, {{$user->firstname}}</td>
+                            <td>{{$user->email}}</td>
+                            <td><a  href="route('user/edit')">Edit</a></td>
+                            <td>
+                                <form method="post" action="{{route('user/delete',$user->id)}}">
+                                    {{csrf_field()}}
+                                    <input type="hidden" />
+                                    <input type="submit" value="delete"/>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
 
+            </table>
 
         </div>
 
@@ -78,8 +94,8 @@
              [ "Martena Mccray", "Post-Sales support", "Edinburgh", "8240", "2011/03/09", "$324,050" ],
              [ "Unity Butler", "Marketing Designer", "San Francisco", "5384", "2009/12/09", "$85,675" ]
          ];
-         alert(dataSet[0][0]);
-         
+
+
          $(document).ready(function() {
              $('#example').DataTable( {
                  data: dataSet,
@@ -92,7 +108,6 @@
                      { title: "Salary" }
                  ]
              } );
-
          } );
         </script>
 

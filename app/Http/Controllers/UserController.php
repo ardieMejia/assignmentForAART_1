@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use App\User;
 
 class UserController extends Controller
@@ -16,6 +17,18 @@ class UserController extends Controller
     public function index()
     {
         //
+    }
+
+    public function index2()
+    {
+        //
+
+        $users=DB::table('users')->get();
+
+            // ['firstname'=>'Ardie','lastname'=>'Wan','email'=>'wan_ahmad_ardie@yahoo.com'],
+            // ['firstname'=>'Ardie','lastname'=>'Mejia','email'=>'wan.ardie.mejia@gmail.com'],
+
+        return view('user2.table',['users'=>$users]);
     }
 
     /**
@@ -72,6 +85,7 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        return "edit page";
     }
 
     /**
@@ -84,6 +98,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        return "update action";
     }
 
     /**
@@ -95,5 +110,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        return "destroy id action";
     }
 }
