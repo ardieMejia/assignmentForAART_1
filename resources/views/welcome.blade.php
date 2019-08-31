@@ -22,8 +22,8 @@
 
             </table>
 
+            <a href="{{url('user/create')}}">Create new user</a>
 
-            <a  href="{{url('user')}}">a link that should do much</a>
 
             
         </div>
