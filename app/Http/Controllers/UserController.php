@@ -39,10 +39,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
-
-
         $user = new User;
-        $user->name = $request->name;
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
         $user->email = $request->email;
 
 

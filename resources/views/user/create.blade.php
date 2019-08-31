@@ -24,8 +24,12 @@
             <form action="/user" method="post">
                 {{csrf_field()}}
 
-                Name:<br/>
-                <input type="text" name="name" />
+                First Name:<br/>
+                <input type="text" name="firstname" />
+                <br/>
+
+                Last Name:<br/>
+                <input type="text" name="lastname" />
                 <br/>
 
                 Email:<br/>
