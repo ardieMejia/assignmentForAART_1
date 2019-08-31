@@ -22,6 +22,7 @@
             <h1>Fill in user details below</h1>
 
             <form action="/user" method="post">
+                {{csrf_field()}}
 
                 Name:<br/>
                 <input type="text" name="name" />
@@ -29,6 +30,11 @@
 
                 Email:<br/>
                 <input type="email" name="email" />
+                <br/>
+
+                Password:<br/>
+                <input type="password" name="password" />
+                <br/>
 
                 <br/>
                 <br/>
