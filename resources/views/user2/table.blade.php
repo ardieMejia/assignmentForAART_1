@@ -37,7 +37,7 @@
                             <td>{{$user->id}}</td>
                             <td>{{$user->lastname}}, {{$user->firstname}}</td>
                             <td>{{$user->email}}</td>
-                            <td><a  href="route('user/edit')">Edit</a></td>
+                            <td><a  href="{{route('user/edit',$user->id)}}">Edit</a></td>
                             <td>
                                 <form method="post" action="{{route('user/delete',$user->id)}}">
                                     {{csrf_field()}}

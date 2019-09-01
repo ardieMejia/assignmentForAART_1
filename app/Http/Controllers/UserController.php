@@ -85,7 +85,14 @@ class UserController extends Controller
     public function edit($id)
     {
         //
-        return "edit page";
+
+        $user = DB::table('users')->where('id',$id)->first();
+
+
+
+
+
+        return view('user.edit',['user'=>$user]);
     }
 
     /**
