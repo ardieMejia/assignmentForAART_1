@@ -89,9 +89,6 @@ class UserController extends Controller
         $user = DB::table('users')->where('id',$id)->first();
 
 
-
-
-
         return view('user.edit',['user'=>$user]);
     }
 
@@ -105,7 +102,22 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
-        return "update action";
+
+        // $user = User::find($id);
+
+        // return $user;
+
+        // another option
+
+        $user = User::find($id);
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
+        $user->email = $request->email;
+
+        $user->save();
+
+        // return view('user.edit',['user' => $user]);
+        return redirect('user2');
     }
 
     /**
@@ -118,8 +130,6 @@ class UserController extends Controller
     {
         //
 
-
-        // $user = DB::table('users')->find($id);
         $user = User::find($id);
 
         $user->delete();
