@@ -29,32 +29,6 @@
                 </li>
             </ul>
 
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>name</th>
-                    <th>email</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-
-                    @foreach ($users as $user)
-                        <tr>
-                            <td>{{$user->id}}</td>
-                            <td>{{$user->lastname}}, {{$user->firstname}}</td>
-                            <td>{{$user->email}}</td>
-                            <td><a  href="{{route('user/edit',$user->id)}}">Edit</a></td>
-                            <td>
-                                <form method="post" action="{{route('user/delete',$user->id)}}">
-                                    {{csrf_field()}}
-                                    <input type="hidden" />
-                                    <input type="submit" value="delete"/>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-
-            </table>
 
         </div>
 
@@ -84,7 +58,6 @@
              } );
          } );
         </script>
-
 
     </body>
 </html>

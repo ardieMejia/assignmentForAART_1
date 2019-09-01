@@ -25,19 +25,19 @@
                 {{csrf_field()}}
 
                 First Name:<br/>
-                <input type="text" name="firstname" />
+                <input type="text" name="firstname" required/>
                 <br/>
 
                 Last Name:<br/>
-                <input type="text" name="lastname" />
+                <input type="text" name="lastname" required/>
                 <br/>
 
                 Email:<br/>
-                <input type="email" name="email" />
+                <input type="text" name="email" required/>
                 <br/>
 
                 Password:<br/>
-                <input type="password" name="password" />
+                <input type="password" name="password" required/>
                 <br/>
 
                 <br/>

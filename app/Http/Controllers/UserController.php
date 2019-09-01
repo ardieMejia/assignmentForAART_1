@@ -52,13 +52,23 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
+        $request = $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|regex:/^.+@.+$/',
+            'password' => 'required',
+            'firstname' => 'required',
+        ]);
+
+
+        // $request is now an array, we can improve this, maybe
         $user = new User;
-        $user->firstname = $request->firstname;
-        $user->lastname = $request->lastname;
-        $user->email = $request->email;
+        $user->firstname = $request['firstname'];
+        $user->lastname = $request['lastname'];
+        $user->email = $request['email'];
 
 
-        $user->password = Hash::make($request->password);
+        $user->password = Hash::make($request['password']);
         $user->save();
 
         return redirect()->route('/');
