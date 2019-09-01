@@ -45,16 +45,54 @@
              @endforeach
          ];
 
+dataSet = [
+    {"id": "1", "firstname": "whatever", "lastname": "haha", "email": "someshit@yahoo.com"},
+    {"id": "3", "firstname": "whatever", "lastname": "haha", "email": "someshit@yahoo.com"},
+    {"id": "4", "firstname": "whatever", "lastname": "haha", "email": "someshit@yahoo.com"},
+    {"id": "11", "firstname": "whatever", "lastname": "haha", "email": "someshit@yahoo.com"},
+]
+
 
          $(document).ready(function() {
              $('#example').DataTable( {
                  data: dataSet,
                  columns: [
-                     { title: "ID" },
-                     { title: "First Name" },
-                     { title: "Last Name" },
-                     { title: "Email" },
+                     { data: "id" },
+                     { data: "firstname" },
+                     { data: "lastname" },
+                     { data: "email" },
+                     { data: null },
+                     { data: null },
+                 ],
+                 "columnDefs": [
+                     {
+                     "targets": -1,
+                         "render": function (data, type, row){
+                             // failed to use route here, instead use this
+                             editHTMLstring = '<a href="/user/'+row.id+'/edit">some link</a>';
+                             return editHTMLstring;
+                         }
+                     },
+                     {
+                         "targets": -2,
+                         "render": function (data, type, row){
+                             // failed to use route here, instead use this
+
+                             // Javascript template literals
+
+                             var deleteHTMLstring = `
+                                 <form method="post" action="/user/${row.id}">
+                                 {{csrf_field()}}
+                                 <input type="hidden" />
+                                 <input type="hidden" name="_method" value="DELETE">
+                                 <input type="submit" value="delete"/>
+                                 </form>              
+                             `;
+                             return deleteHTMLstring;
+                         }
+                     }
                  ]
+
              } );
          } );
         </script>
