@@ -23,6 +23,12 @@
             </table>
 
 
+            <ul>
+                <li>
+                    <a href="{{url('user/create')}}">Create new user</a>
+                </li>
+            </ul>
+
             <table>
                 <tr>
                     <th>ID</th>
