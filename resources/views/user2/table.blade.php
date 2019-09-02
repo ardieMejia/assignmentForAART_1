@@ -64,12 +64,7 @@
              @endforeach
          ];
 
-         /* dataSet = [
-          *     {"id": "1", "firstname": "whatever", "lastname": "haha", "email": "someshit@yahoo.com"},
-          *     {"id": "3", "firstname": "whatever", "lastname": "haha", "email": "someshit@yahoo.com"},
-          *     {"id": "4", "firstname": "whatever", "lastname": "haha", "email": "someshit@yahoo.com"},
-          *     {"id": "11", "firstname": "whatever", "lastname": "haha", "email": "someshit@yahoo.com"},
-          * ] */
+
 
 
          $(document).ready(function() {
@@ -88,7 +83,7 @@
                      "targets": -1,
                      "render": function (data, type, row){
                              // failed to use route here, instead use this
-                             editHTMLstring = '<a href="/user/'+row.id+'/edit">some link</a>';
+                             editHTMLstring = '<a href="/user/'+row.id+'/edit">Edit</a>';
                              return editHTMLstring;
                          }
                      },
