@@ -13,21 +13,40 @@
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
 
+        <style>
+         .mynav{
+             margin-bottom:30px;
+         }
+         .mynav a{
+             float:left;
+             padding: 14px 16px;
+             border-bottom: 3px solid transparent;
+         }
+         .mynav a:hover{
+             border-bottom: 3px solid red;
+         }
+
+        </style>
+
 
 
     </head>
     <body>
         <div class="container">
+
+            <!-- header section -->
+            <h1>Assignment</h1>
+
+            <nav class="navbar navbar-light bg-light mynav">
+                <a href="{{url('user/create')}}" class="navbar-brand">Create new user</a>
+                <a href="{{url('user2')}}" class="navbar-brand">New Home Page</a>
+            </nav>
+            <!-- end header section -->
+
             <table id="example" class="display">
 
             </table>
 
-
-            <ul>
-                <li>
-                    <a href="{{url('user/create')}}">Create new user</a>
-                </li>
-            </ul>
 
 
         </div>
@@ -36,21 +55,21 @@
 
          dataSet = [
              @foreach ($users as $user)
-             [
-                 "{{ $user->id }}",
-                 "{{ $user->firstname }}",
-                 "{{ $user->lastname }}",
-                 "{{ $user->email }}",
-             ],
+             {
+                 "id": "{{ $user->id }}",
+                 "firstname": "{{ $user->firstname }}",
+                 "lastname": "{{ $user->lastname }}",
+                 "email": "{{ $user->email }}",
+             },
              @endforeach
          ];
 
-dataSet = [
-    {"id": "1", "firstname": "whatever", "lastname": "haha", "email": "someshit@yahoo.com"},
-    {"id": "3", "firstname": "whatever", "lastname": "haha", "email": "someshit@yahoo.com"},
-    {"id": "4", "firstname": "whatever", "lastname": "haha", "email": "someshit@yahoo.com"},
-    {"id": "11", "firstname": "whatever", "lastname": "haha", "email": "someshit@yahoo.com"},
-]
+         /* dataSet = [
+          *     {"id": "1", "firstname": "whatever", "lastname": "haha", "email": "someshit@yahoo.com"},
+          *     {"id": "3", "firstname": "whatever", "lastname": "haha", "email": "someshit@yahoo.com"},
+          *     {"id": "4", "firstname": "whatever", "lastname": "haha", "email": "someshit@yahoo.com"},
+          *     {"id": "11", "firstname": "whatever", "lastname": "haha", "email": "someshit@yahoo.com"},
+          * ] */
 
 
          $(document).ready(function() {
@@ -64,18 +83,18 @@ dataSet = [
                      { data: null },
                      { data: null },
                  ],
-                 "columnDefs": [
+                     "columnDefs": [
                      {
                      "targets": -1,
-                         "render": function (data, type, row){
+                     "render": function (data, type, row){
                              // failed to use route here, instead use this
                              editHTMLstring = '<a href="/user/'+row.id+'/edit">some link</a>';
                              return editHTMLstring;
                          }
                      },
                      {
-                         "targets": -2,
-                         "render": function (data, type, row){
+                             "targets": -2,
+                             "render": function (data, type, row){
                              // failed to use route here, instead use this
 
                              // Javascript template literals
@@ -86,14 +105,14 @@ dataSet = [
                                  <input type="hidden" />
                                  <input type="hidden" name="_method" value="DELETE">
                                  <input type="submit" value="delete"/>
-                                 </form>              
-                             `;
-                             return deleteHTMLstring;
-                         }
-                     }
-                 ]
+                 </form>              
+                 `;
+                 return deleteHTMLstring;
+             }
+         }
+         ]
 
-             } );
+         } );
          } );
         </script>
 

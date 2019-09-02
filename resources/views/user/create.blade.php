@@ -12,12 +12,37 @@
 
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
+        <style>
+         .mynav{
+             margin-bottom:30px;
+         }
+         .mynav a{
+             float:left;
+             padding: 14px 16px;
+             border-bottom: 3px solid transparent;
+         }
+         .mynav a:hover{
+             border-bottom: 3px solid red;
+         }
+
+        </style>
 
     </head>
     <body>
         <div class="container">
 
+            <!-- header section -->
+
             <h1>Fill in user details below</h1>
+
+            <nav class="navbar navbar-light bg-light mynav">
+                <a href="{{url('user/create')}}" class="navbar-brand">Create new user</a>
+                <a href="{{url('user2')}}" class="navbar-brand">New Home Page</a>
+            </nav>
+            <!-- end header section -->
+
+
+
 
             <form action="/user" method="post">
                 {{csrf_field()}}
