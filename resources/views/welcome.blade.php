@@ -88,7 +88,7 @@
              [ "Martena Mccray", "Post-Sales support", "Edinburgh", "8240", "2011/03/09", "$324,050" ],
              [ "Unity Butler", "Marketing Designer", "San Francisco", "5384", "2009/12/09", "$85,675" ]
          ];
-         alert(dataSet[0][0]);
+
          
          $(document).ready(function() {
              $('#example').DataTable( {

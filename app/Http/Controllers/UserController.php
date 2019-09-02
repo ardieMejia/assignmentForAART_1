@@ -58,8 +58,8 @@ class UserController extends Controller
             'email' => 'required|regex:/^.+@.+$/',
             'password' => 'required',
             'firstname' => 'required',
+            'status' => 'required',
         ]);
-
 
         // $request is now an array, we can improve this, maybe
         $user = new User;
@@ -67,8 +67,8 @@ class UserController extends Controller
         $user->lastname = $request['lastname'];
         $user->email = $request['email'];
 
-
         $user->password = Hash::make($request['password']);
+        $user->status = $request['status'] === 'active' ? 1 : 0 ;
         $user->save();
 
         return redirect()->route('/');
@@ -123,10 +123,12 @@ class UserController extends Controller
         $user->firstname = $request->firstname;
         $user->lastname = $request->lastname;
         $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+
 
         $user->save();
 
-        // return view('user.edit',['user' => $user]);
+
         return redirect('user2');
     }
 

@@ -27,15 +27,25 @@
                 <input type="hidden" name="_method" value="PUT" />
 
                 First Name:<br/>
-                    <input type="text" name="firstname" value="{{$user->firstname}}"/>
+                <input type="text" name="firstname" value="{{$user->firstname}}"/>
                 <br/>
 
                 Last Name:<br/>
-                    <input type="text" name="lastname" value="{{$user->lastname}}"/>
+                <input type="text" name="lastname" value="{{$user->lastname}}"/>
                 <br/>
 
                 Email:<br/>
-                    <input type="email" name="email" value="{{$user->email}}"/>
+                <input type="email" name="email" value="{{$user->email}}"/>
+                <br/>
+
+                Password:<br/>
+                <input type="password" name="password" required/>
+                <br/>
+
+                Status:<br/>
+                <input type="radio" name="status" value="active" @php  if(!empty($user->status)) echo "checked"@endphp/> active <br/>
+
+                <input type="radio" name="status" value="inactive" @php  if(empty($user->status)) echo "checked"@endphp/> inactive
                 <br/>
 
 

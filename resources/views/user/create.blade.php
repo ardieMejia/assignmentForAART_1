@@ -63,6 +63,11 @@
                 <input type="password" name="password" required/>
                 <br/>
 
+                Status:<br/>
+                <input type="radio" name="status" value="active" /> active <br/>
+                <input type="radio" name="status" value="inactive" /> inactive
+                <br/>
+
                 <br/>
                 <br/>
                 <br/>
