@@ -37,7 +37,7 @@
 
             <nav class="navbar navbar-light bg-light mynav">
                 <a href="{{url('user/create')}}" class="navbar-brand">Create new user</a>
-                <a href="{{url('user2')}}" class="navbar-brand">Home Page</a>
+                <a href="{{url('users')}}" class="navbar-brand">Home Page</a>
             </nav>
             <!-- end header section -->
 

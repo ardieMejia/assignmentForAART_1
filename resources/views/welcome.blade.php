@@ -35,7 +35,7 @@
                             <div class="row justify-content-md-center">
 
                                 <div class="col-md-auto">
-                                    <h1><a href="/user2">Welcome</a></h1>
+                                    <h1><a href="/users">Welcome</a></h1>
                                 </div>
 
                             </div>

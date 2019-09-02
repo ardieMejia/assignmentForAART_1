@@ -17,18 +17,9 @@ class UserController extends Controller
     public function index()
     {
         //
-    }
-
-    public function index2()
-    {
-        //
-
         $users=DB::table('users')->get();
 
-            // ['firstname'=>'Ardie','lastname'=>'Wan','email'=>'wan_ahmad_ardie@yahoo.com'],
-            // ['firstname'=>'Ardie','lastname'=>'Mejia','email'=>'wan.ardie.mejia@gmail.com'],
-
-        return view('user2.table',['users'=>$users]);
+        return view('users.table',['users'=>$users]);
     }
 
     /**
@@ -71,7 +62,7 @@ class UserController extends Controller
         $user->status = $request['status'] === 'active' ? 1 : 0 ;
         $user->save();
 
-        return redirect()->route('/');
+        return redirect()->route('/users');
 
     }
 
@@ -129,7 +120,7 @@ class UserController extends Controller
         $user->save();
 
 
-        return redirect('user2');
+        return redirect('users');
     }
 
     /**
@@ -145,7 +136,7 @@ class UserController extends Controller
         $user = User::find($id);
 
         $user->delete();
-        return redirect('user2');
+        return redirect('users');
 
     }
 }
